@@ -1,0 +1,7 @@
+{
+	"editor.insertSpaces": false,
+	"files.exclude": {
+		"**/*.o": true
+	},
+	"editor.rulers": [80]
+}

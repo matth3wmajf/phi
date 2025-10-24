@@ -1,0 +1,3 @@
+/source/*.o
+/source/platform/i386-pc/*.o
+/phi-i386-pc.bin
