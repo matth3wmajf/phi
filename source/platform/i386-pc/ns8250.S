@@ -137,3 +137,21 @@ phi_ns8250_com1_output:
 /* ... */
 	leave
 	ret
+
+.global phi_ns8250_com1_flush
+/* ... */
+phi_ns8250_com1_flush:
+/* ... */
+	push %ebp
+	mov %esp, %ebp
+	
+/* ... */
+	mov $COM1_LSR, %dx
+.L_flush_wait:
+	in %dx, %al
+	test $0x40, %al
+	jz .L_flush_wait
+
+/* ... */
+	leave
+	ret

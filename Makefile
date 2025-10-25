@@ -8,16 +8,17 @@ CC = cc
 AS = as
 
 # ... 
-CFLAGS = -m32 -ffreestanding -fno-builtin -fno-exceptions -fno-stack-protector -Wall -Wextra -O2 -Iinclude
+CFLAGS = -m32 -ffreestanding -fno-builtin -fno-exceptions -fno-stack-protector -Wall -Wextra -Iinclude -fno-pic
 
 # ... 
-LDFLAGS = -m elf_i386 -Tlink-i386-pc.ld
+LDFLAGS = -m elf_i386 -Tlink-i386-pc.ld -no-pie
 
 # ... 
 ASFLAGS = --32
 
 # ... 
 OBJECTS = $(patsubst source/%.c,source/%.o,$(wildcard source/*.c)) $(patsubst source/%.S,source/%.o,$(wildcard source/*.S)) $(patsubst source/platform/i386-pc/%.c,source/platform/i386-pc/%.o,$(wildcard source/platform/i386-pc/*.c)) $(patsubst source/platform/i386-pc/%.S,source/platform/i386-pc/%.o,$(wildcard source/platform/i386-pc/*.S))
+
 # ... 
 .PHONY: all clean
 
