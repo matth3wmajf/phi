@@ -1,7 +1,9 @@
+#include "phi/platform/i386-pc/privilege.h"
 #include <stdint.h>
 #include <stddef.h>
 
 #include <phi/console.h>
+#include <phi/platform/i386-pc/gdt.h>
 #include <phi/platform/i386-pc/ns8250.h>
 
 /* ... */
@@ -18,7 +20,10 @@ struct
 
 /* ... */
 	const char *pt_module_string;
-} g_module_buffer[] = { { .pt_enable = phi_ns8250_com1_enable, .pt_disable = phi_ns8250_com1_disable, .t_status = 0, .pt_module_string = "ns8250" } };
+} g_module_buffer[] = {
+	{ .pt_enable = phi_ns8250_com1_enable, .pt_disable = phi_ns8250_com1_disable, .t_status = 0, .pt_module_string = "ns8250" },
+	{ .pt_enable = phi_privilege_enable, .pt_disable = phi_privilege_disable, .t_status = 0, .pt_module_string = "privilege" }
+};
 
 /* ... */
 uintmax_t g_module_buffer_size = sizeof(g_module_buffer) / sizeof(g_module_buffer[0]);
@@ -27,7 +32,7 @@ uintmax_t g_module_buffer_size = sizeof(g_module_buffer) / sizeof(g_module_buffe
 const char *pg_phi_build_date_string = __DATE__, *pg_phi_build_time_string = __TIME__;
 
 /* ... */
-int main() 
+int main()
 {
 /* ... */
 	phi_console_t l_console = { .pt_input_function = phi_console_dummy_input, .pt_output_function = phi_console_dummy_output, .pt_flush_function = phi_console_dummy_flush };

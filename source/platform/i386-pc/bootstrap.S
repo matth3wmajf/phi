@@ -15,6 +15,7 @@
 /* ... */
 phi_stack_bottom:
 .skip 16384
+.global phi_stack_top
 /* ... */
 phi_stack_top:
 
