@@ -79,3 +79,5 @@ phi_gdt_set_entry:
 /* ... */
 	leave
 	ret
+
+.section .note.GNU-stack,"",@progbits

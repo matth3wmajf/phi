@@ -155,3 +155,5 @@ phi_ns8250_com1_flush:
 /* ... */
 	leave
 	ret
+
+.section .note.GNU-stack,"",@progbits

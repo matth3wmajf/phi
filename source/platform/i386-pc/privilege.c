@@ -7,13 +7,13 @@
 #include <phi/platform/i386-pc/privilege.h>
 
 /* ... */
-extern uint32_t phi_stack_top;
+extern uint32_t g_phi_stack_top;
 
 /* ... */
 int phi_privilege_enable()
 {
 /* ... */
-	static phi_gdt_entry_t l_gdt_entry_buffer[5];
+	static phi_gdt_entry_t l_gdt_entry_buffer[6];
 
 /* ... */
 	static phi_gdt_t l_gdt;
@@ -46,7 +46,7 @@ int phi_privilege_enable()
 	l_tss.t_ss0 = 0x10;
 
 /* ... */
-	l_tss.t_esp0 = (uint32_t)(uintptr_t)&phi_stack_top;
+	l_tss.t_esp0 = (uint32_t)(uintptr_t)&g_phi_stack_top;
 
 /* ... */
 	l_gdt.t_base = (uint32_t)(uintptr_t)&l_gdt_entry_buffer;
@@ -64,6 +64,30 @@ int phi_privilege_enable()
 /* ... */
 int phi_privilege_disable()
 {
+/* ... */
+	static phi_gdt_entry_t l_gdt_entry_buffer[3];
+
+/* ... */
+	static phi_gdt_t l_gdt;
+
+/* ... */
+	phi_gdt_set_entry(&l_gdt_entry_buffer[0], 0, 0, 0, 0);
+
+/* ... */
+	phi_gdt_set_entry(&l_gdt_entry_buffer[1], 0, 0xFFFFF, 0x9A, 0xCF);
+
+/* ... */
+	phi_gdt_set_entry(&l_gdt_entry_buffer[2], 0, 0xFFFFF, 0x92, 0xCF);
+
+/* ... */
+	l_gdt.t_base = (uint32_t)(uintptr_t)&l_gdt_entry_buffer;
+
+/* ... */
+	l_gdt.t_limit = (sizeof(phi_gdt_entry_t) * 3) - 1;
+
+/* ... */
+	phi_gdt_flush(&l_gdt);
+
 /* ... */
 	return 0;
 }

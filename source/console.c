@@ -4,6 +4,8 @@
 
 #include <phi/console.h>
 
+phi_console_t g_console = { .pt_input_function = phi_console_dummy_input, .pt_output_function = phi_console_dummy_output, .pt_flush_function = phi_console_dummy_flush };
+
 /* ... */
 int phi_console_puts(phi_console_t *pt_console, const char *pt_string)
 {

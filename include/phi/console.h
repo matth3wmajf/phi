@@ -17,6 +17,8 @@ typedef struct
 	int (*pt_flush_function)();
 } phi_console_t;
 
+extern phi_console_t g_console;
+
 /* ... */
 int phi_console_puts(phi_console_t *pt_console, const char *pt_string);
 

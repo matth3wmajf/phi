@@ -19,3 +19,5 @@ phi_tss_flush:
 /* ... */
 	leave
 	ret
+
+.section .note.GNU-stack,"",@progbits
