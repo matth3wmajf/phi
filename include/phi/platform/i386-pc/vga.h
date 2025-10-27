@@ -6,10 +6,10 @@
 extern const uint16_t *pg_phi_vga_mode3_display_buffer;
 
 /* ... */
-extern const uintmax_t g_phi_vga_mode3_display_buffer_size;
+extern const uint32_t g_phi_vga_mode3_display_buffer_size;
 
 /* ... */
-extern const uintmax_t g_phi_vga_mode3_display_width, g_phi_vga_mode3_display_height;
+extern const uint32_t g_phi_vga_mode3_display_width, g_phi_vga_mode3_display_height;
 
 /* ... */
 enum

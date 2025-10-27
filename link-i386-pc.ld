@@ -8,6 +8,9 @@ SECTIONS
 	. = 2M;
 
 /* ... */
+	g_phi_kernel_bottom = .;
+
+/* ... */
 	.text BLOCK(4K) : ALIGN(4K)
 	{
 /* ... */
@@ -40,4 +43,7 @@ SECTIONS
 /* ... */
 		*(.bss)
 	}
+
+/* ... */
+	g_phi_kernel_top = .;
 }

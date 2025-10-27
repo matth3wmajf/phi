@@ -4,4 +4,4 @@
 #include <stddef.h>
 
 /* ... */
-void *memset(void *pt_pointer, int t_value, uintmax_t t_size);
+void *memset(void *pt_pointer, int t_value, uint32_t t_size);

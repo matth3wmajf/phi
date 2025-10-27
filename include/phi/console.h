@@ -17,6 +17,7 @@ typedef struct
 	int (*pt_flush_function)();
 } phi_console_t;
 
+/* ... */
 extern phi_console_t g_console;
 
 /* ... */

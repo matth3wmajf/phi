@@ -1,7 +1,6 @@
 .set ALIGN, 1<<0
 .set MEMINFO, 1<<1
-.set MMAP, 1<<6
-.set FLAGS, ALIGN | MEMINFO | MMAP
+.set FLAGS, ALIGN | MEMINFO
 .set MAGIC, 0x1BADB002
 .set CHECKSUM, -(MAGIC + FLAGS)
 
@@ -13,6 +12,7 @@
 
 .section .bss
 .align 16
+.global g_phi_stack_bottom
 /* ... */
 g_phi_stack_bottom:
 .skip 16384
